@@ -1,8 +1,8 @@
 # Forecasting the Effective Federal Funds Rate
 
-A reproducible study of one-month-ahead EFFR forecasts using a persistence baseline, Ridge regression, and Random Forest. The models use lagged rates only, so every forecast has a clear information cutoff.
+This project began as a team project during AI4ALL in summer 2025. The first version explored whether macroeconomic indicators and several machine-learning models could forecast the Effective Federal Funds Rate. In 2026, I returned to it and rebuilt the analysis so that every forecast uses only past information and the results can be reproduced from the data in this repository.
 
-The model design was developed on data through February 2017 and then frozen. A second Federal Reserve snapshot, covering March 2017 through August 2026, provides the final external test.
+The current version is a one-month-ahead benchmark comparing persistence, Ridge regression, and Random Forest. I developed the model design on data through February 2017, fixed the choices, and then evaluated them on a second Federal Reserve snapshot covering March 2017 through August 2026.
 
 **Main finding:** Ridge has the lowest external-period RMSE, at **0.1606 percentage points** versus **0.1922** for persistence. Its MAE advantage is much smaller, and the uncertainty interval includes zero. Random Forest remains worse than both simpler approaches.
 
@@ -12,9 +12,11 @@ The model design was developed on data through February 2017 and then frozen. A 
 
 All features and hyperparameters come from the earlier benchmark. The models are refitted on every usable observation through February 2017, then evaluated on 114 untouched monthly observations. Each prediction uses the rate observed in the previous month; no later-period values are used for fitting or model selection.
 
-- **Persistence:** RMSE **0.1922**, MAE **0.0996**, R² **0.9894**.
-- **Ridge:** RMSE **0.1606**, MAE **0.0934**, R² **0.9926**.
-- **Random Forest:** RMSE **0.2368**, MAE **0.1393**, R² **0.9839**.
+| Model | RMSE | MAE | R² |
+|---|---:|---:|---:|
+| Persistence | 0.1922 | 0.0996 | 0.9894 |
+| Ridge | **0.1606** | **0.0934** | **0.9926** |
+| Random Forest | 0.2368 | 0.1393 | 0.9839 |
 
 RMSE and MAE are percentage points. For scale, Ridge's RMSE is about 16.1 basis points and persistence's is about 19.2 basis points.
 
@@ -52,19 +54,13 @@ On Windows, activate with `.venv\Scripts\Activate.ps1` in PowerShell. The packag
 
 For target month *t*, the inputs are EFFR lags at 1, 2, 3, 6, and 12 months; trailing means and standard deviations over 3, 6, and 12 months; and the preceding monthly change. Every input ends at *t−1*.
 
-The development benchmark uses a chronological 80/20 split and five expanding training folds. Scaling for Ridge is fitted inside each fold. Training CV selected persistence; it also chose the Ridge penalty and Random Forest settings carried into external validation. The later data were opened only after those choices were fixed.
+The development benchmark uses a chronological 80/20 split and five expanding training folds. Scaling for Ridge is fitted inside each fold. Training CV selected persistence and fixed the Ridge penalty and Random Forest settings before the later data were evaluated.
 
-This is a rolling one-step evaluation. Earlier observations in an evaluation period become available to predict the next month, just as they would in regular monthly forecasting. It is not a recursive forecast of an entire decade from a single starting date.
+![Development-period forecasts on the chronological holdout](reports/forecast.png)
 
-The development holdout results were:
+The holdout also shows why Random Forest was a poor choice for this problem: it could not extrapolate below the rate floor in its training data during the post-2008 near-zero-rate period. The external period contains a different mix of rising, near-zero, and falling rates, and Ridge handles the larger monthly moves better.
 
-- **Persistence:** CV RMSE **0.4968**; holdout RMSE **0.1526**, MAE **0.0700**.
-- **Ridge:** CV RMSE **0.5632**; holdout RMSE **0.1535**, MAE **0.1080**.
-- **Random Forest:** CV RMSE **1.2579**; holdout RMSE **0.7514**, MAE **0.6569**.
-
-Random Forest could not extrapolate below the training-period rate floor, which explains much of its poor performance during the post-2008 near-zero-rate period. The external period contains a different mix of rising, near-zero, and falling rates; Ridge's lower RMSE there is evidence that the linear autoregressive features can soften errors around larger monthly moves.
-
-See [methodology.md](docs/methodology.md) for the forecast timing, leakage audit, and uncertainty procedure. Source details and file hashes are in [data/README.md](data/README.md).
+See [methodology.md](docs/methodology.md) for the forecast timing, development results, leakage audit, and uncertainty procedure. Source details and file hashes are in [data/README.md](data/README.md).
 
 ## Outputs
 
@@ -73,12 +69,12 @@ See [methodology.md](docs/methodology.md) for the forecast timing, leakage audit
 - `tests/` checks feature timing, split isolation, data continuity, frozen parameters, dated outputs, and deterministic uncertainty estimates.
 - GitHub Actions reruns the tests and both evaluations, then compares regenerated artifacts with the committed results.
 
-## Scope
+## What this project predicts
 
-EFFR is closely guided by the Federal Reserve's target rate or range, so persistence is a meaningful benchmark. This project studies short-run predictability in the realized monthly rate. It does not attempt to anticipate FOMC decisions; that would require meeting dates, real-time macroeconomic vintages, the target range, and market expectations available on each forecast date.
+EFFR is closely guided by the Federal Reserve's target rate or range, which makes persistence a meaningful benchmark. This project tests short-run predictability in the realized monthly rate. It uses a rolling one-step evaluation: after a month is observed, that value becomes available for forecasting the next month.
 
-The study is complete. The feature set, models, evaluation periods, and published results are frozen so the repository remains a reproducible record rather than an expanding collection of experiments.
+The project does not try to anticipate FOMC decisions. That would require meeting dates, the target range, market expectations, and real-time macroeconomic vintages available on each forecast date.
 
-## Contributors and license
+## Project history and license
 
-Original project: **Anastasia Galkova and Bakr Bouhaya**. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
+The original exploratory project was developed by **Anastasia Galkova and Bakr Bouhaya** during AI4ALL in summer 2025. Anastasia later rebuilt the data pipeline, evaluation, tests, and external validation presented here. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
