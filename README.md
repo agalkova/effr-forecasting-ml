@@ -1,5 +1,7 @@
 # Forecasting the Effective Federal Funds Rate
 
+[![Checks](https://github.com/agalkova/effr-forecasting-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/agalkova/effr-forecasting-ml/actions/workflows/ci.yml)
+
 A reproducible study of one-month-ahead EFFR forecasts using a persistence baseline, Ridge regression, and Random Forest. The models use lagged rates only, so every forecast has a clear information cutoff.
 
 The model design was developed on data through February 2017 and then frozen. A second Federal Reserve snapshot, covering March 2017 through August 2026, provides the final external test.
@@ -81,4 +83,4 @@ The study is complete. The feature set, models, evaluation periods, and publishe
 
 ## Contributors and license
 
-Original project: **Anastasia Galkova and Bakr Bouhaya**. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
+This project began as a class project. The current study design, implementation, reproducible evaluation, and external validation are my work. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
