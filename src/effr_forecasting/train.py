@@ -22,9 +22,11 @@ from .data import load_data, make_features
 
 
 def score(actual, predicted):
-    return {"RMSE": float(np.sqrt(mean_squared_error(actual, predicted))),
-            "MAE": float(mean_absolute_error(actual, predicted)),
-            "R2": float(r2_score(actual, predicted))}
+    return {
+        "RMSE": float(np.sqrt(mean_squared_error(actual, predicted))),
+        "MAE": float(mean_absolute_error(actual, predicted)),
+        "R2": float(r2_score(actual, predicted)),
+    }
 
 
 def stable_cv_results(search):
@@ -49,28 +51,65 @@ def run(data: Path, output: Path, test_fraction=0.2, seed=42):
         raise ValueError("test_fraction must be between 0.1 and 0.4")
     frame = load_data(data)
     X, y = make_features(frame)
+
+    # The last observations form the holdout. Every tuning decision is made
+    # with the earlier training rows only.
     split = int(len(X) * (1 - test_fraction))
     X_train, X_test = X.iloc[:split], X.iloc[split:]
     y_train, y_test = y.iloc[:split], y.iloc[split:]
+
+    # TimeSeriesSplit keeps every validation fold later than its training fold.
     cv = list(TimeSeriesSplit(n_splits=5).split(X_train))
     candidates = {
-        "Ridge": (make_pipeline(StandardScaler(), Ridge()),
-                  {"ridge__alpha": np.logspace(-2, 3, 12).tolist()}),
-        "RandomForest": (RandomForestRegressor(n_estimators=200, random_state=seed, n_jobs=1),
-                         {"max_depth": [4, 8, None], "min_samples_leaf": [1, 3, 8]}),
+        "Ridge": (
+            make_pipeline(StandardScaler(), Ridge()),
+            {"ridge__alpha": np.logspace(-2, 3, 12).tolist()},
+        ),
+        "RandomForest": (
+            RandomForestRegressor(n_estimators=200, random_state=seed, n_jobs=1),
+            {"max_depth": [4, 8, None], "min_samples_leaf": [1, 3, 8]},
+        ),
     }
-    predictions = pd.DataFrame({"Actual": y_test, "Persistence": X_test["effr_lag_1"]})
-    baseline_cv = np.mean([np.sqrt(mean_squared_error(y_train.iloc[v], X_train.iloc[v]["effr_lag_1"])) for _, v in cv])
-    rows = [{"Model": "Persistence", "CV_RMSE": float(baseline_cv), **score(y_test, predictions.Persistence)}]
+
+    # Persistence needs no fitting: its forecast is simply the latest known rate.
+    predictions = pd.DataFrame(
+        {"Actual": y_test, "Persistence": X_test["effr_lag_1"]}
+    )
+    baseline_fold_rmse = [
+        np.sqrt(mean_squared_error(y_train.iloc[valid], X_train.iloc[valid]["effr_lag_1"]))
+        for _, valid in cv
+    ]
+    rows = [
+        {
+            "Model": "Persistence",
+            "CV_RMSE": float(np.mean(baseline_fold_rmse)),
+            **score(y_test, predictions["Persistence"]),
+        }
+    ]
     params = {}
     searches = {}
+
+    # GridSearchCV fits preprocessing and each model separately inside every fold.
     for name, (estimator, grid) in candidates.items():
-        search = GridSearchCV(estimator, grid, cv=cv, scoring="neg_root_mean_squared_error", n_jobs=1)
+        search = GridSearchCV(
+            estimator,
+            grid,
+            cv=cv,
+            scoring="neg_root_mean_squared_error",
+            n_jobs=1,
+        )
         search.fit(X_train, y_train)
         searches[name] = search
         predictions[name] = search.predict(X_test)
-        rows.append({"Model": name, "CV_RMSE": float(-search.best_score_), **score(y_test, predictions[name])})
+        rows.append(
+            {
+                "Model": name,
+                "CV_RMSE": float(-search.best_score_),
+                **score(y_test, predictions[name]),
+            }
+        )
         params[name] = search.best_params_
+
     metrics = pd.DataFrame(rows)
     selected = str(metrics.loc[metrics.CV_RMSE.idxmin(), "Model"])
     output.mkdir(parents=True, exist_ok=True)
@@ -78,20 +117,41 @@ def run(data: Path, output: Path, test_fraction=0.2, seed=42):
     predictions.to_csv(output / "predictions.csv", index_label="date")
     for name, search in searches.items():
         stable_cv_results(search).to_csv(output / f"{name.lower()}_cv.csv", index=False)
-    importance = pd.Series(searches["RandomForest"].best_estimator_.feature_importances_, index=X.columns).sort_values()
+    importance = pd.Series(
+        searches["RandomForest"].best_estimator_.feature_importances_,
+        index=X.columns,
+    ).sort_values()
     importance.to_csv(output / "feature_importance.csv", index_label="feature", header=["importance"])
     metadata = {
         "data_sha256": hashlib.sha256(data.read_bytes()).hexdigest(),
         "data_source_series": "H15/H15/RIFSPFF_N.M",
         "python": platform.python_version(),
-        "packages": {name: importlib.metadata.version(name) for name in ("numpy", "pandas", "scikit-learn", "matplotlib")},
-        "seed": seed, "test_fraction": test_fraction, "horizon_months": 1,
-        "raw_rows": len(frame), "warmup_rows": 12, "train_rows": len(X_train), "test_rows": len(X_test),
-        "train_start": str(y_train.index.min().date()), "train_end": str(y_train.index.max().date()),
-        "test_start": str(y_test.index.min().date()), "test_end": str(y_test.index.max().date()),
-        "selected_by_training_cv": selected, "best_parameters": params,
+        "packages": {
+            name: importlib.metadata.version(name)
+            for name in ("numpy", "pandas", "scikit-learn", "matplotlib")
+        },
+        "seed": seed,
+        "test_fraction": test_fraction,
+        "horizon_months": 1,
+        "raw_rows": len(frame),
+        "warmup_rows": 12,
+        "train_rows": len(X_train),
+        "test_rows": len(X_test),
+        "train_start": str(y_train.index.min().date()),
+        "train_end": str(y_train.index.max().date()),
+        "test_start": str(y_test.index.min().date()),
+        "test_end": str(y_test.index.max().date()),
+        "selected_by_training_cv": selected,
+        "best_parameters": params,
         "features": list(X.columns),
-        "cv_folds": [{"train_end": str(X_train.index[t[-1]].date()), "validation_start": str(X_train.index[v[0]].date()), "validation_end": str(X_train.index[v[-1]].date())} for t, v in cv],
+        "cv_folds": [
+            {
+                "train_end": str(X_train.index[train[-1]].date()),
+                "validation_start": str(X_train.index[valid[0]].date()),
+                "validation_end": str(X_train.index[valid[-1]].date()),
+            }
+            for train, valid in cv
+        ],
         "evaluation": "Fixed fitted models; rolling one-month forecasts using previous observed EFFR. Not recursive multi-month forecasting.",
     }
     (output / "run.json").write_text(json.dumps(metadata, indent=2) + "\n")
@@ -99,11 +159,15 @@ def run(data: Path, output: Path, test_fraction=0.2, seed=42):
     fig, ax = plt.subplots(figsize=(11, 5))
     predictions.plot(ax=ax, linewidth=1.5)
     ax.set(title="One-month EFFR forecasts · chronological holdout", ylabel="EFFR (%)", xlabel="Target month")
-    fig.tight_layout(); fig.savefig(output / "forecast.png", dpi=160); plt.close(fig)
+    fig.tight_layout()
+    fig.savefig(output / "forecast.png", dpi=160)
+    plt.close(fig)
     fig, ax = plt.subplots(figsize=(8, 5))
     importance.plot.barh(ax=ax, color="#426a9c")
     ax.set(title="Random Forest · training impurity importance", xlabel="Relative importance")
-    fig.tight_layout(); fig.savefig(output / "feature_importance.png", dpi=160); plt.close(fig)
+    fig.tight_layout()
+    fig.savefig(output / "feature_importance.png", dpi=160)
+    plt.close(fig)
     print(metrics.to_string(index=False))
     print(f"Selected by training CV: {selected}; artifacts: {output.resolve()}")
     return metrics
