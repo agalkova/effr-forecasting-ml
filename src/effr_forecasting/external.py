@@ -83,16 +83,11 @@ def paired_block_intervals(
     }
 
 
-def run_external(
+def prepare_external_data(
     development_data: Path,
     external_data: Path,
-    frozen_design: Path,
-    output: Path,
-    *,
-    seed: int = 42,
-    bootstrap_samples: int = 10_000,
-    block_length: int = 12,
-) -> pd.DataFrame:
+) -> tuple[pd.DataFrame, pd.Series, pd.DataFrame, pd.Series]:
+    """Build one feature table, then separate fitting rows from later evaluation rows."""
     development = load_data(development_data)
     external = load_data(external_data)
     expected_start = development.index.max() + pd.offsets.MonthBegin(1)
@@ -102,15 +97,19 @@ def run_external(
         raise ValueError("Development and external periods must not overlap")
 
     combined = pd.concat([development[[TARGET]], external[[TARGET]]])
-    X, y = make_features(combined)
-    training = X.index <= development.index.max()
-    evaluation = X.index >= external.index.min()
-    X_train, y_train = X.loc[training], y.loc[training]
-    X_external, y_external = X.loc[evaluation], y.loc[evaluation]
+    features, target = make_features(combined)
+    training = features.index <= development.index.max()
+    evaluation = features.index >= external.index.min()
+    return (
+        features.loc[training],
+        target.loc[training],
+        features.loc[evaluation],
+        target.loc[evaluation],
+    )
 
-    design = load_frozen_design(frozen_design)
-    if list(X.columns) != design["features"]:
-        raise ValueError("Feature definitions differ from the recorded model design")
+
+def build_frozen_models(design: dict, seed: int) -> tuple[dict, float, dict]:
+    """Recreate the two fitted-model candidates from the recorded design."""
     ridge_alpha = float(design["best_parameters"]["Ridge"]["ridge__alpha"])
     forest_params = design["best_parameters"]["RandomForest"]
     models = {
@@ -123,7 +122,17 @@ def run_external(
             n_jobs=1,
         ),
     }
+    return models, ridge_alpha, forest_params
 
+
+def forecast_external_period(
+    models: dict,
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    X_external: pd.DataFrame,
+    y_external: pd.Series,
+) -> pd.DataFrame:
+    """Fit on the development period and forecast each month in the external period."""
     predictions = pd.DataFrame({
         "Actual": y_external,
         "Persistence": X_external["effr_lag_1"],
@@ -131,12 +140,18 @@ def run_external(
     for name, model in models.items():
         model.fit(X_train, y_train)
         predictions[name] = model.predict(X_external)
+    return predictions
 
-    metrics = pd.DataFrame([
-        {"Model": name, **score(predictions["Actual"], predictions[name])}
-        for name in ("Persistence", "Ridge", "RandomForest")
-    ])
-    uncertainty_rows = []
+
+def summarize_uncertainty(
+    predictions: pd.DataFrame,
+    *,
+    samples: int,
+    block_length: int,
+    seed: int,
+) -> pd.DataFrame:
+    """Compare each fitted model with persistence using paired time blocks."""
+    rows = []
     actual = predictions["Actual"].to_numpy()
     baseline = predictions["Persistence"].to_numpy()
     for name in ("Ridge", "RandomForest"):
@@ -144,19 +159,99 @@ def run_external(
             actual,
             baseline,
             predictions[name].to_numpy(),
-            samples=bootstrap_samples,
+            samples=samples,
             block_length=block_length,
             seed=seed,
         )
         for metric, (difference, lower, upper) in intervals.items():
-            uncertainty_rows.append({
+            rows.append({
                 "Model": name,
                 "Metric": metric,
                 "Difference_vs_Persistence": difference,
                 "CI_Lower": lower,
                 "CI_Upper": upper,
             })
-    uncertainty = pd.DataFrame(uncertainty_rows)
+    return pd.DataFrame(rows)
+
+
+def plot_external_forecasts(predictions: pd.DataFrame, path: Path) -> None:
+    """Plot forecasts and their trailing 12-month absolute errors."""
+    rolling_mae = (
+        predictions.drop(columns="Actual")
+        .sub(predictions["Actual"], axis=0)
+        .abs()
+        .rolling(12)
+        .mean()
+    )
+    plt.style.use("seaborn-v0_8-whitegrid")
+    fig, axes = plt.subplots(2, 1, figsize=(11, 8), sharex=True, height_ratios=(2, 1))
+    colors = {
+        "Actual": "#222222",
+        "Persistence": "#4c78a8",
+        "Ridge": "#f58518",
+        "RandomForest": "#54a24b",
+    }
+    labels = {"RandomForest": "Random Forest"}
+    for name in predictions:
+        axes[0].plot(
+            predictions.index,
+            predictions[name],
+            label=labels.get(name, name),
+            color=colors[name],
+            linewidth=1.4,
+        )
+    axes[0].legend()
+    axes[0].set(title="EFFR forecasts on the external period", ylabel="EFFR (%)", xlabel="")
+    for name in rolling_mae:
+        axes[1].plot(
+            rolling_mae.index,
+            rolling_mae[name],
+            label=labels.get(name, name),
+            color=colors[name],
+            linewidth=1.4,
+        )
+    axes[1].legend()
+    axes[1].set(
+        title="Trailing 12-month mean absolute error",
+        ylabel="Percentage points",
+        xlabel="Target month",
+    )
+    fig.tight_layout()
+    fig.savefig(path, dpi=160)
+    plt.close(fig)
+
+
+def run_external(
+    development_data: Path,
+    external_data: Path,
+    frozen_design: Path,
+    output: Path,
+    *,
+    seed: int = 42,
+    bootstrap_samples: int = 10_000,
+    block_length: int = 12,
+) -> pd.DataFrame:
+    X_train, y_train, X_external, y_external = prepare_external_data(
+        development_data, external_data
+    )
+    design = load_frozen_design(frozen_design)
+    if list(X_train.columns) != design["features"]:
+        raise ValueError("Feature definitions differ from the recorded model design")
+    models, ridge_alpha, forest_params = build_frozen_models(design, seed)
+    predictions = forecast_external_period(
+        models, X_train, y_train, X_external, y_external
+    )
+
+    metrics = pd.DataFrame([
+        {"Model": name, **score(predictions["Actual"], predictions[name])}
+        for name in ("Persistence", "Ridge", "RandomForest")
+    ])
+    uncertainty = summarize_uncertainty(
+        predictions,
+        samples=bootstrap_samples,
+        block_length=block_length,
+        seed=seed,
+    )
 
     output.mkdir(parents=True, exist_ok=True)
     metrics.to_csv(output / "metrics.csv", index=False)
@@ -190,7 +285,7 @@ def run_external(
                 "random_state": seed,
             },
         },
-        "features": list(X.columns),
+        "features": list(X_train.columns),
         "uncertainty": {
             "method": "paired circular moving-block bootstrap",
             "confidence_level": 0.95,
@@ -204,40 +299,7 @@ def run_external(
         ),
     }
     (output / "run.json").write_text(json.dumps(metadata, indent=2) + "\n")
-
-    rolling_mae = predictions.drop(columns="Actual").sub(predictions["Actual"], axis=0).abs().rolling(12).mean()
-    plt.style.use("seaborn-v0_8-whitegrid")
-    fig, axes = plt.subplots(2, 1, figsize=(11, 8), sharex=True, height_ratios=(2, 1))
-    colors = {
-        "Actual": "#222222",
-        "Persistence": "#4c78a8",
-        "Ridge": "#f58518",
-        "RandomForest": "#54a24b",
-    }
-    labels = {"RandomForest": "Random Forest"}
-    for name in predictions:
-        axes[0].plot(
-            predictions.index,
-            predictions[name],
-            label=labels.get(name, name),
-            color=colors[name],
-            linewidth=1.4,
-        )
-    axes[0].legend()
-    axes[0].set(title="EFFR forecasts on the external period", ylabel="EFFR (%)", xlabel="")
-    for name in rolling_mae:
-        axes[1].plot(
-            rolling_mae.index,
-            rolling_mae[name],
-            label=labels.get(name, name),
-            color=colors[name],
-            linewidth=1.4,
-        )
-    axes[1].legend()
-    axes[1].set(title="Trailing 12-month mean absolute error", ylabel="Percentage points", xlabel="Target month")
-    fig.tight_layout()
-    fig.savefig(output / "forecast.png", dpi=160)
-    plt.close(fig)
+    plot_external_forecasts(predictions, output / "forecast.png")
 
     print(metrics.to_string(index=False))
     print(uncertainty.to_string(index=False))
