@@ -68,6 +68,17 @@ Random Forest could not extrapolate below the training-period rate floor, which 
 
 See [methodology.md](docs/methodology.md) for the forecast timing, leakage audit, and uncertainty procedure. Source details and file hashes are in [data/README.md](data/README.md).
 
+## Code path
+
+The benchmark follows one short path:
+
+1. [`data.py`](src/effr_forecasting/data.py) validates the monthly series and builds lagged features.
+2. [`train.py`](src/effr_forecasting/train.py) compares the three models with expanding-window cross-validation and records the chosen settings.
+3. [`external.py`](src/effr_forecasting/external.py) reloads those settings, fits only on the development period, forecasts the later period, and calculates uncertainty.
+4. [`verify.py`](src/effr_forecasting/verify.py) reruns both stages and compares the regenerated files with the published artifacts.
+
+The command-line functions coordinate these steps; model fitting and evaluation are kept in named helpers so the information boundary is visible in the code.
+
 ## Outputs
 
 - `reports/` contains the development split's predictions, model-selection results, feature importance, figures, and run metadata.
