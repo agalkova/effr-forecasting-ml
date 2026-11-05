@@ -7,7 +7,7 @@ name = "effr-forecasting"
 version = "1.0.0"
 description = "Reproducible monthly EFFR forecasting benchmark"
 requires-python = ">=3.12"
-dependencies = ["numpy==2.2.6", "pandas==2.2.3", "scikit-learn==1.6.1", "matplotlib==3.10.3"]
+dependencies = ["numpy==2.2.6", "pandas==2.2.3", "scikit-learn==1.6.1", "matplotlib==3.11.2"]
 
 [project.optional-dependencies]
 dev = ["pytest==8.3.5"]
