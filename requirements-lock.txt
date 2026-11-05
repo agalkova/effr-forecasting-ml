@@ -9,7 +9,7 @@ matplotlib==3.10.3
 numpy==2.2.6
 packaging==26.3
 pandas==2.2.3
-pillow==12.3.0
+pillow==13.0.0
 pluggy==1.6.0
 pyparsing==3.3.2
 pytest==8.3.5
