@@ -92,6 +92,10 @@ EFFR is closely guided by the Federal Reserve's target rate or range, so persist
 
 The study is complete. The feature set, models, evaluation periods, and published results are frozen so the repository remains a reproducible record rather than an expanding collection of experiments.
 
+## Development note
+
+AI coding tools were used during implementation. The repository documents the leakage audit and locked evaluation design, with tests and reproducible benchmark results.
+
 ## Contributors and license
 
 This project began as a class project. The current study design, implementation, reproducible evaluation, and external validation are my work. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
