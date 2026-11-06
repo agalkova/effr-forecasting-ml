@@ -98,4 +98,4 @@ AI coding tools were used during implementation. The repository documents the le
 
 ## Contributors and license
 
-This project began as a class project. The current study design, implementation, reproducible evaluation, and external validation are my work. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
+This project began as a class project. The study design, evaluation and external validation were developed through iterative work with AI coding tools; see the Development note above. See [LICENSE](LICENSE) for code licensing and [data/README.md](data/README.md) for data attribution and terms.
