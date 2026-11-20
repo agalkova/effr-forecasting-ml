@@ -875,7 +875,7 @@ L 290.304 471.744
 " style="fill: none; stroke: #8f9aa3; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_16">
-    <text style="font-weight: 700; font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="34.29216" y="322.4448" transform="rotate(-0 34.29216 322.4448)">Miss each month (forecast − actual)</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="34.29216" y="322.4448" transform="rotate(-0 34.29216 322.4448)">Miss each month (forecast - actual)</text>
    </g>
    <g id="legend_2">
     <g id="line2d_34">
@@ -905,7 +905,7 @@ L 169.23966 333.170773
    <text style="font-weight: 700; font-size: 13.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="15.12" y="39.757891" transform="rotate(-0 15.12 39.757891)">Forecasts vs the actual rate</text>
   </g>
   <g id="text_21">
-   <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="15.12" y="58.358281" transform="rotate(-0 15.12 58.358281)">Mar 2017 – Aug 2026, 114 months</text>
+   <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="15.12" y="58.358281" transform="rotate(-0 15.12 58.358281)">Mar 2017 - Aug 2026, 114 months</text>
   </g>
   <g id="text_22">
    <text style="font-size: 9.5px; font-family: Consolas, Menlo, 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6b7b87" x="15.12" y="509.896973" transform="rotate(-0 15.12 509.896973)">reports/external/predictions.csv</text>

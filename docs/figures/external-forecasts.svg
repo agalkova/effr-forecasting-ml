@@ -567,7 +567,7 @@ L 591.84 143.804342
 " clip-path="url(#p5e1f12f2fa)" style="fill: none; stroke: #0b5dc4; stroke-width: 1.6; stroke-linecap: round"/>
    </g>
    <g id="text_8">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="350.422326" y="87.998852" transform="rotate(-0 350.422326 87.998852)">2022–23 hikes</text>
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="350.422326" y="87.998852" transform="rotate(-0 350.422326 87.998852)">2022-23 hikes</text>
    </g>
    <g id="legend_1">
     <g id="line2d_29">
@@ -1038,7 +1038,7 @@ L 617.76 419.328
 " style="fill: none; stroke: #8f9aa3; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_29">
-    <text style="font-weight: 700; font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="47.52" y="297.216" transform="rotate(-0 47.52 297.216)">Miss each month (forecast − actual)</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="47.52" y="297.216" transform="rotate(-0 47.52 297.216)">Miss each month (forecast - actual)</text>
    </g>
    <g id="patch_10">
     <path d="M 250.621163 313.433535 
@@ -1076,7 +1076,7 @@ L 574.462266 316.571516
    <text style="font-weight: 700; font-size: 12.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="22.176" y="37.998047" transform="rotate(-0 22.176 37.998047)">Actual rate and one-month-ahead forecasts</text>
   </g>
   <g id="text_35">
-   <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="22.176" y="55.598437" transform="rotate(-0 22.176 55.598437)">External test, Mar 2017 – Aug 2026 (114 months)</text>
+   <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="22.176" y="55.598437" transform="rotate(-0 22.176 55.598437)">External test, Mar 2017 - Aug 2026 (114 months)</text>
   </g>
   <g id="text_36">
    <text style="font-size: 8.5px; font-family: Consolas, Menlo, 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6b7b87" x="22.176" y="453.228408" transform="rotate(-0 22.176 453.228408)">reports/external/predictions.csv</text>

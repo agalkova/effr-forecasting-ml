@@ -25,9 +25,9 @@ RESULTS = ROOT / "reports" / "external"
 OUT = ROOT / "docs" / "figures"
 
 PERIODS = [
-    ("Mar 2017 – Dec 2021", "2017-03", "2021-12"),
-    ("2022–23 rate hikes", "2022-01", "2023-12"),
-    ("Jan 2024 – Aug 2026", "2024-01", "2026-12"),
+    ("Mar 2017 - Dec 2021", "2017-03", "2021-12"),
+    ("2022-23 rate hikes", "2022-01", "2023-12"),
+    ("Jan 2024 - Aug 2026", "2024-01", "2026-12"),
 ]
 MODELS = [
     ("Persistence", "Repeat last month", fs.GREY),
@@ -106,7 +106,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         top.text(
             hike[0] + pd.Timedelta(days=12),
             5.75,
-            "2022–23 hikes",
+            "2022-23 hikes",
             color=fs.MUTED,
             fontsize=plt.rcParams["font.size"] - 1.5,
             va="top",
@@ -138,7 +138,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         bottom.text(
             -0.02,
             1.2,
-            "Miss each month (forecast − actual)",
+            "Miss each month (forecast - actual)",
             transform=bottom.transAxes,
             color=fs.INK,
             fontweight="bold",
@@ -149,7 +149,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         bottom.text(
             0.0,
             1.06,
-            "Miss each month (forecast − actual)",
+            "Miss each month (forecast - actual)",
             transform=bottom.transAxes,
             color=fs.INK,
             fontweight="bold",
@@ -179,9 +179,9 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         "Actual rate and one-month-ahead forecasts"
         if not narrow
         else "Forecasts vs the actual rate",
-        "Mar 2017 – Aug 2026, 114 months"
+        "Mar 2017 - Aug 2026, 114 months"
         if narrow
-        else "External test, Mar 2017 – Aug 2026 (114 months)",
+        else "External test, Mar 2017 - Aug 2026 (114 months)",
         narrow,
     )
     fs.source(fig, "reports/external/predictions.csv", narrow)
@@ -228,7 +228,7 @@ def period_figure(frame: pd.DataFrame, narrow: bool) -> None:
     months = table.groupby("period", sort=False)["months"].first().to_numpy()
     labels = [f"{p[0]}\n{m} months" for p, m in zip(PERIODS, months)]
     if narrow:
-        labels = ["2017–21\n58 mo", "2022–23\n24 mo", "2024–26\n32 mo"]
+        labels = ["2017-21\n58 mo", "2022-23\n24 mo", "2024-26\n32 mo"]
     axis.set_xticks(range(len(PERIODS)), labels)
     axis.tick_params(axis="x", length=0)
     axis.set_ylim(0, 0.42)

@@ -12,7 +12,7 @@ The model design was developed on data through February 2017 and then frozen. A 
 
 In a typical month, repeating last month's rate is hard to beat: its median miss is 0.01 percentage
 points, against 0.06 for Ridge, because the rate usually doesn't move. The large misses cluster around
-the March 2020 cut and the 2022–23 increases, when a forecast built from past values can only follow the
+the March 2020 cut and the 2022-23 increases, when a forecast built from past values can only follow the
 rate. Ridge's lower RMSE comes from those months. Before 2022 it is close to repeating last month; during
 the hikes and since 2024 it is clearly better:
 
