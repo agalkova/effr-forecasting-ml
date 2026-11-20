@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg role="img" aria-label="Forecast error by period. RMSE in percentage points for repeating last month, Ridge and Random Forest in three stretches of the test period: March 2017 to December 2021, the 2022-23 rate hikes, and January 2024 to August 2026." xmlns:xlink="http://www.w3.org/1999/xlink" width="633.6pt" height="295.2pt" viewBox="0 0 633.6 295.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>Forecast error by period</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Forecast error by period</dc:title>
+    <dc:description>RMSE in percentage points for repeating last month, Ridge and Random Forest in three stretches of the test period: March 2017 to December 2021, the 2022-23 rate hikes, and January 2024 to August 2026.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 295.2 
+L 633.6 295.2 
+L 633.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 47.52 253.872 
+L 617.76 253.872 
+L 617.76 76.752 
+L 47.52 76.752 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(98.065369 265.540701)">Mar 2017 – Dec 2021</text>
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(123.365799 276.943299)">58 months</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(287.155781 265.541443)">2022–23 rate hikes</text>
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(307.195586 276.944041)">24 months</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(467.281311 265.540701)">Jan 2024 – Aug 2026</text>
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(491.025373 276.943299)">32 months</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <path d="M 47.52 253.872 
+L 617.76 253.872 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_5"/>
+     <g id="text_4">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="257.480887" transform="rotate(-0 44.02 257.480887)">0.00</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6">
+      <path d="M 47.52 232.786286 
+L 617.76 232.786286 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_7"/>
+     <g id="text_5">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="236.395172" transform="rotate(-0 44.02 236.395172)">0.05</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_8">
+      <path d="M 47.52 211.700571 
+L 617.76 211.700571 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_9"/>
+     <g id="text_6">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="215.309458" transform="rotate(-0 44.02 215.309458)">0.10</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_10">
+      <path d="M 47.52 190.614857 
+L 617.76 190.614857 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="194.223744" transform="rotate(-0 44.02 194.223744)">0.15</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_12">
+      <path d="M 47.52 169.529143 
+L 617.76 169.529143 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_13"/>
+     <g id="text_8">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="173.13803" transform="rotate(-0 44.02 173.13803)">0.20</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_14">
+      <path d="M 47.52 148.443429 
+L 617.76 148.443429 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_15"/>
+     <g id="text_9">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="152.052315" transform="rotate(-0 44.02 152.052315)">0.25</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_16">
+      <path d="M 47.52 127.357714 
+L 617.76 127.357714 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_17"/>
+     <g id="text_10">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="130.966601" transform="rotate(-0 44.02 130.966601)">0.30</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_18">
+      <path d="M 47.52 106.272 
+L 617.76 106.272 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_19"/>
+     <g id="text_11">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="109.880887" transform="rotate(-0 44.02 109.880887)">0.35</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_20">
+      <path d="M 47.52 85.186286 
+L 617.76 85.186286 
+" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
+     </g>
+     <g id="line2d_21"/>
+     <g id="text_12">
+      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="88.795172" transform="rotate(-0 44.02 88.795172)">0.40</text>
+     </g>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="16.345195" y="165.312" transform="rotate(-90 16.345195 165.312)">RMSE (pp)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 73.44 253.872 
+L 121.235745 253.872 
+L 121.235745 182.360432 
+L 73.44 182.360432 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #98a3ab"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 257.269787 253.872 
+L 305.065532 253.872 
+L 305.065532 125.442286 
+L 257.269787 125.442286 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #98a3ab"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 441.099574 253.872 
+L 488.895319 253.872 
+L 488.895319 211.740126 
+L 441.099574 211.740126 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #98a3ab"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 124.91234 253.872 
+L 172.708085 253.872 
+L 172.708085 185.536436 
+L 124.91234 185.536436 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #0b5dc4"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 308.742128 253.872 
+L 356.537872 253.872 
+L 356.537872 157.394722 
+L 308.742128 157.394722 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #0b5dc4"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 492.571915 253.872 
+L 540.36766 253.872 
+L 540.36766 224.079172 
+L 492.571915 224.079172 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #0b5dc4"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 176.384681 253.872 
+L 224.180426 253.872 
+L 224.180426 151.927856 
+L 176.384681 151.927856 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #d9631e"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 360.214468 253.872 
+L 408.010213 253.872 
+L 408.010213 114.101285 
+L 360.214468 114.101285 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #d9631e"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 544.044255 253.872 
+L 591.84 253.872 
+L 591.84 208.777012 
+L 544.044255 208.777012 
+z
+" clip-path="url(#p48a9db568a)" style="fill: #d9631e"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 47.52 253.872 
+L 47.52 76.752 
+" style="fill: none; stroke: #8f9aa3; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 47.52 253.872 
+L 617.76 253.872 
+" style="fill: none; stroke: #8f9aa3; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="97.337872" y="177.668037" transform="rotate(-0 97.337872 177.668037)">0.17</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="281.16766" y="120.74989" transform="rotate(-0 281.16766 120.74989)">0.30</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="464.997447" y="207.047731" transform="rotate(-0 464.997447 207.047731)">0.10</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="148.810213" y="180.844041" transform="rotate(-0 148.810213 180.844041)">0.16</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="332.64" y="152.702326" transform="rotate(-0 332.64 152.702326)">0.23</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="516.469787" y="219.386777" transform="rotate(-0 516.469787 219.386777)">0.07</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="200.282553" y="147.235461" transform="rotate(-0 200.282553 147.235461)">0.24</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="384.11234" y="109.40889" transform="rotate(-0 384.11234 109.40889)">0.33</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="567.942128" y="204.084617" transform="rotate(-0 567.942128 204.084617)">0.11</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_14">
+     <path d="M 56.52 86.265638 
+L 74.52 86.265638 
+L 74.52 79.265638 
+L 56.52 79.265638 
+z
+" style="fill: #98a3ab"/>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="82.52" y="86.265638" transform="rotate(-0 82.52 86.265638)">Repeat last month</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 194.57 86.265638 
+L 212.57 86.265638 
+L 212.57 79.265638 
+L 194.57 79.265638 
+z
+" style="fill: #0b5dc4"/>
+    </g>
+    <g id="text_24">
+     <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="220.57" y="86.265638" transform="rotate(-0 220.57 86.265638)">Ridge</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 269.146563 86.265638 
+L 287.146563 86.265638 
+L 287.146563 79.265638 
+L 269.146563 79.265638 
+z
+" style="fill: #d9631e"/>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="295.146563" y="86.265638" transform="rotate(-0 295.146563 86.265638)">Random Forest</text>
+    </g>
+   </g>
+  </g>
+  <g id="text_26">
+   <text style="font-weight: 700; font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0b5dc4" x="22.176" y="19.598437" transform="rotate(-0 22.176 19.598437)">Fig. 2</text>
+  </g>
+  <g id="text_27">
+   <text style="font-weight: 700; font-size: 12.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="22.176" y="37.998047" transform="rotate(-0 22.176 37.998047)">Forecast error by period (RMSE, lower is better)</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="22.176" y="55.598437" transform="rotate(-0 22.176 55.598437)">Same 114 test months, split into three stretches</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 8.5px; font-family: Consolas, Menlo, 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6b7b87" x="22.176" y="289.615608" transform="rotate(-0 22.176 289.615608)">reports/external/predictions.csv</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p48a9db568a">
+   <rect x="47.52" y="76.752" width="570.24" height="177.12"/>
+  </clipPath>
+ </defs>
+</svg>
