@@ -9,6 +9,7 @@ small screens.
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -69,9 +70,9 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
     top = fig.add_axes(
         [
             0.13 if narrow else 0.075,
-            0.47 if narrow else 0.44,
+            0.43 if narrow else 0.44,
             0.83 if narrow else 0.9,
-            0.33 if narrow else 0.40,
+            0.37 if narrow else 0.40,
         ]
     )
     bottom = fig.add_axes(
@@ -264,6 +265,18 @@ def period_figure(frame: pd.DataFrame, narrow: bool) -> None:
 
 
 def main() -> None:
+    global OUT
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument(
+        "--plain",
+        type=Path,
+        metavar="DIR",
+        help="write versions without the figure label, title and source line to DIR",
+    )
+    args = parser.parse_args()
+    if args.plain:
+        fs.PLAIN = True
+        OUT = args.plain
     frame = load()
     for narrow in (False, True):
         forecast_figure(frame, narrow)
