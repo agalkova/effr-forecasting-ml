@@ -1,7 +1,7 @@
 """Draw the figures for the external test period.
 
 Reads the committed results in reports/external/ and writes SVG figures to
-docs/figures/. Each figure is drawn twice: a wide version and a narrow one for
+docs/figures/. Each figure is drawn at the width it is shown at: a wide version and a narrow one for
 small screens.
 
     python scripts/make_figures.py
@@ -64,15 +64,13 @@ def period_rmse(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
-    fs.apply(narrow)
-    width = fs.NARROW if narrow else fs.WIDE
-    fig = plt.figure(figsize=(width, 7.2 if narrow else 6.4))
+    fig = fs.new_figure(6.4, 7.2)
     top = fig.add_axes(
         [
             0.13 if narrow else 0.075,
-            0.43 if narrow else 0.44,
+            0.43 if narrow else 0.42,
             0.83 if narrow else 0.9,
-            0.37 if narrow else 0.40,
+            0.37 if narrow else 0.33,
         ]
     )
     bottom = fig.add_axes(
@@ -101,7 +99,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
             fontsize=plt.rcParams["font.size"] - 2,
         )
     else:
-        top.legend(loc="upper left", ncol=3, bbox_to_anchor=(0, 1.02))
+        top.legend(loc="lower left", ncol=3, bbox_to_anchor=(-0.01, 1.0))
 
     bottom.axhline(0, color=fs.SPINE, lw=0.8)
     bottom.plot(
@@ -115,8 +113,6 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
     bottom.set_ylim(-1.15, 1.15)
     bottom.set_yticks([-1, 0, 1] if narrow else [-1, -0.5, 0, 0.5, 1])
     bottom.yaxis.set_major_formatter(lambda v, _: f"{v:+.1f}" if v else "0")
-    if not narrow:
-        bottom.set_ylabel("pp")
     if narrow:
         bottom.legend(
             loc="lower left",
@@ -136,7 +132,12 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
             fontsize=plt.rcParams["font.size"] - 1,
         )
     else:
-        bottom.legend(loc="upper right", ncol=2, fontsize=plt.rcParams["legend.fontsize"] - 0.5)
+        bottom.legend(
+            loc="lower right",
+            ncol=2,
+            bbox_to_anchor=(1.0, 1.0),
+            fontsize=plt.rcParams["legend.fontsize"] - 0.5,
+        )
         bottom.text(
             0.0,
             1.06,
@@ -176,7 +177,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         narrow,
     )
     fs.source(fig, "reports/external/predictions.csv", narrow)
-    name = "external-forecasts" + ("-narrow" if narrow else "")
+    name = "external-forecasts" + fs.suffix()
     fs.save(
         fig,
         OUT / f"{name}.svg",
@@ -189,9 +190,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
 
 def period_figure(frame: pd.DataFrame, narrow: bool) -> None:
     table = period_rmse(frame)
-    fs.apply(narrow)
-    width = fs.NARROW if narrow else fs.WIDE
-    fig = plt.figure(figsize=(width, 5.2 if narrow else 4.1))
+    fig = fs.new_figure(4.1, 5.2)
     axis = fig.add_axes(
         [
             0.15 if narrow else 0.075,
@@ -245,7 +244,7 @@ def period_figure(frame: pd.DataFrame, narrow: bool) -> None:
         narrow,
     )
     fs.source(fig, "reports/external/predictions.csv", narrow)
-    name = "error-by-period" + ("-narrow" if narrow else "")
+    name = "error-by-period" + fs.suffix()
     fs.save(
         fig,
         OUT / f"{name}.svg",
@@ -269,7 +268,10 @@ def main() -> None:
         fs.PLAIN = True
         OUT = args.plain
     frame = load()
-    for narrow in (False, True):
+    variants = ("wide", "mid", "narrow") if args.plain else ("wide", "narrow")
+    for variant in variants:
+        fs.VARIANT = variant
+        narrow = variant != "wide"
         forecast_figure(frame, narrow)
         period_figure(frame, narrow)
     print(period_rmse(frame).pivot(index="period", columns="model", values="rmse").round(3))
