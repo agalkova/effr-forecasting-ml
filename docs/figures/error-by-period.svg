@@ -38,22 +38,22 @@ z
     <g id="xtick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(98.726658 265.540701)">Mar 2017 - Dec 2021</text>
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(123.365799 276.943299)">58 months</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(90.818728 266.830496)">Mar 2017 - Dec 2021</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(119.34826 280.033504)">58 months</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(287.81707 265.541443)">2022-23 rate hikes</text>
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(307.195586 276.944041)">24 months</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(280.739766 266.831355)">2022-23 rate hikes</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(303.178047 280.034363)">24 months</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3"/>
      <g id="text_3">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(467.9426 265.540701)">Jan 2024 - Aug 2026</text>
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(491.025373 276.943299)">32 months</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(460.280412 266.830496)">Jan 2024 - Aug 2026</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; fill: #6b7b87" transform="translate(487.007834 280.033504)">32 months</text>
      </g>
     </g>
    </g>
@@ -66,99 +66,55 @@ L 617.76 253.872
      </g>
      <g id="line2d_5"/>
      <g id="text_4">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="257.480887" transform="rotate(-0 44.02 257.480887)">0.00</text>
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="258.050711" transform="rotate(-0 44.02 258.050711)">0.0</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_6">
-      <path d="M 47.52 232.786286 
-L 617.76 232.786286 
-" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
-     </g>
-     <g id="line2d_7"/>
-     <g id="text_5">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="236.395172" transform="rotate(-0 44.02 236.395172)">0.05</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_8">
       <path d="M 47.52 211.700571 
 L 617.76 211.700571 
 " clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
      </g>
-     <g id="line2d_9"/>
-     <g id="text_6">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="215.309458" transform="rotate(-0 44.02 215.309458)">0.10</text>
+     <g id="line2d_7"/>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="215.879282" transform="rotate(-0 44.02 215.879282)">0.1</text>
      </g>
     </g>
-    <g id="ytick_4">
-     <g id="line2d_10">
-      <path d="M 47.52 190.614857 
-L 617.76 190.614857 
-" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
-     </g>
-     <g id="line2d_11"/>
-     <g id="text_7">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="194.223744" transform="rotate(-0 44.02 194.223744)">0.15</text>
-     </g>
-    </g>
-    <g id="ytick_5">
-     <g id="line2d_12">
+    <g id="ytick_3">
+     <g id="line2d_8">
       <path d="M 47.52 169.529143 
 L 617.76 169.529143 
 " clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
      </g>
-     <g id="line2d_13"/>
-     <g id="text_8">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="173.13803" transform="rotate(-0 44.02 173.13803)">0.20</text>
+     <g id="line2d_9"/>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="173.707854" transform="rotate(-0 44.02 173.707854)">0.2</text>
      </g>
     </g>
-    <g id="ytick_6">
-     <g id="line2d_14">
-      <path d="M 47.52 148.443429 
-L 617.76 148.443429 
-" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
-     </g>
-     <g id="line2d_15"/>
-     <g id="text_9">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="152.052315" transform="rotate(-0 44.02 152.052315)">0.25</text>
-     </g>
-    </g>
-    <g id="ytick_7">
-     <g id="line2d_16">
+    <g id="ytick_4">
+     <g id="line2d_10">
       <path d="M 47.52 127.357714 
 L 617.76 127.357714 
 " clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
      </g>
-     <g id="line2d_17"/>
-     <g id="text_10">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="130.966601" transform="rotate(-0 44.02 130.966601)">0.30</text>
+     <g id="line2d_11"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="131.536425" transform="rotate(-0 44.02 131.536425)">0.3</text>
      </g>
     </g>
-    <g id="ytick_8">
-     <g id="line2d_18">
-      <path d="M 47.52 106.272 
-L 617.76 106.272 
-" clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
-     </g>
-     <g id="line2d_19"/>
-     <g id="text_11">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="109.880887" transform="rotate(-0 44.02 109.880887)">0.35</text>
-     </g>
-    </g>
-    <g id="ytick_9">
-     <g id="line2d_20">
+    <g id="ytick_5">
+     <g id="line2d_12">
       <path d="M 47.52 85.186286 
 L 617.76 85.186286 
 " clip-path="url(#p48a9db568a)" style="fill: none; stroke-dasharray: 0.8,1.6; stroke-dashoffset: 0; stroke: #dcd8cc; stroke-width: 0.8"/>
      </g>
-     <g id="line2d_21"/>
-     <g id="text_12">
-      <text style="font-size: 9.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="88.795172" transform="rotate(-0 44.02 88.795172)">0.40</text>
+     <g id="line2d_13"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: end; fill: #6b7b87" x="44.02" y="89.364997" transform="rotate(-0 44.02 89.364997)">0.4</text>
      </g>
     </g>
-    <g id="text_13">
-     <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="16.345195" y="165.312" transform="rotate(-90 16.345195 165.312)">RMSE (pp)</text>
+    <g id="text_9">
+     <text style="font-size: 12px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="19.64375" y="165.312" transform="rotate(-90 19.64375 165.312)">RMSE (pp)</text>
     </g>
    </g>
    <g id="patch_3">
@@ -243,80 +199,80 @@ L 47.52 76.752
 L 617.76 253.872 
 " style="fill: none; stroke: #8f9aa3; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
+   <g id="text_10">
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="97.337872" y="177.307685" transform="rotate(-0 97.337872 177.307685)">0.17</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="281.16766" y="120.389539" transform="rotate(-0 281.16766 120.389539)">0.30</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="464.997447" y="206.687379" transform="rotate(-0 464.997447 206.687379)">0.10</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="148.810213" y="180.48369" transform="rotate(-0 148.810213 180.48369)">0.16</text>
+   </g>
    <g id="text_14">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="97.337872" y="177.668037" transform="rotate(-0 97.337872 177.668037)">0.17</text>
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="332.64" y="152.341975" transform="rotate(-0 332.64 152.341975)">0.23</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="281.16766" y="120.74989" transform="rotate(-0 281.16766 120.74989)">0.30</text>
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="516.469787" y="219.026426" transform="rotate(-0 516.469787 219.026426)">0.07</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="464.997447" y="207.047731" transform="rotate(-0 464.997447 207.047731)">0.10</text>
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="200.282553" y="146.87511" transform="rotate(-0 200.282553 146.87511)">0.24</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="148.810213" y="180.844041" transform="rotate(-0 148.810213 180.844041)">0.16</text>
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="384.11234" y="109.048538" transform="rotate(-0 384.11234 109.048538)">0.33</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="332.64" y="152.702326" transform="rotate(-0 332.64 152.702326)">0.23</text>
-   </g>
-   <g id="text_19">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="516.469787" y="219.386777" transform="rotate(-0 516.469787 219.386777)">0.07</text>
-   </g>
-   <g id="text_20">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="200.282553" y="147.235461" transform="rotate(-0 200.282553 147.235461)">0.24</text>
-   </g>
-   <g id="text_21">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="384.11234" y="109.40889" transform="rotate(-0 384.11234 109.40889)">0.33</text>
-   </g>
-   <g id="text_22">
-    <text style="font-size: 9px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="567.942128" y="204.084617" transform="rotate(-0 567.942128 204.084617)">0.11</text>
+    <text style="font-size: 10.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #43586a" x="567.942128" y="203.724266" transform="rotate(-0 567.942128 203.724266)">0.11</text>
    </g>
    <g id="legend_1">
     <g id="patch_14">
-     <path d="M 56.52 86.265638 
-L 74.52 86.265638 
-L 74.52 79.265638 
-L 56.52 79.265638 
+     <path d="M 57.87 88.755403 
+L 78.57 88.755403 
+L 78.57 80.705403 
+L 57.87 80.705403 
 z
 " style="fill: #98a3ab"/>
     </g>
-    <g id="text_23">
-     <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="82.52" y="86.265638" transform="rotate(-0 82.52 86.265638)">Repeat last month</text>
+    <g id="text_19">
+     <text style="font-size: 11.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="87.77" y="88.755403" transform="rotate(-0 87.77 88.755403)">Repeat last month</text>
     </g>
     <g id="patch_15">
-     <path d="M 194.57 86.265638 
-L 212.57 86.265638 
-L 212.57 79.265638 
-L 194.57 79.265638 
+     <path d="M 216.6275 88.755403 
+L 237.3275 88.755403 
+L 237.3275 80.705403 
+L 216.6275 80.705403 
 z
 " style="fill: #0b5dc4"/>
     </g>
-    <g id="text_24">
-     <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="220.57" y="86.265638" transform="rotate(-0 220.57 86.265638)">Ridge</text>
+    <g id="text_20">
+     <text style="font-size: 11.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="246.5275" y="88.755403" transform="rotate(-0 246.5275 88.755403)">Ridge</text>
     </g>
     <g id="patch_16">
-     <path d="M 269.146563 86.265638 
-L 287.146563 86.265638 
-L 287.146563 79.265638 
-L 269.146563 79.265638 
+     <path d="M 302.390547 88.755403 
+L 323.090547 88.755403 
+L 323.090547 80.705403 
+L 302.390547 80.705403 
 z
 " style="fill: #d9631e"/>
     </g>
-    <g id="text_25">
-     <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="295.146563" y="86.265638" transform="rotate(-0 295.146563 86.265638)">Random Forest</text>
+    <g id="text_21">
+     <text style="font-size: 11.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start" x="332.290547" y="88.755403" transform="rotate(-0 332.290547 88.755403)">Random Forest</text>
     </g>
    </g>
   </g>
-  <g id="text_26">
-   <text style="font-weight: 700; font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0b5dc4" x="22.176" y="19.598437" transform="rotate(-0 22.176 19.598437)">Fig. 2</text>
+  <g id="text_22">
+   <text style="font-weight: 700; font-size: 11.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0b5dc4" x="22.176" y="20.738203" transform="rotate(-0 22.176 20.738203)">Fig. 2</text>
   </g>
-  <g id="text_27">
-   <text style="font-weight: 700; font-size: 12.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="22.176" y="37.998047" transform="rotate(-0 22.176 37.998047)">Forecast error by period (RMSE, lower is better)</text>
+  <g id="text_23">
+   <text style="font-weight: 700; font-size: 14px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1d2b36" x="22.176" y="40.637812" transform="rotate(-0 22.176 40.637812)">Forecast error by period (RMSE, lower is better)</text>
   </g>
-  <g id="text_28">
-   <text style="font-size: 10px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="22.176" y="55.598437" transform="rotate(-0 22.176 55.598437)">Same 114 test months, split into three stretches</text>
+  <g id="text_24">
+   <text style="font-size: 11.5px; font-family: Tahoma, Verdana, 'DejaVu Sans', sans-serif; text-anchor: start; fill: #6b7b87" x="22.176" y="59.738203" transform="rotate(-0 22.176 59.738203)">Same 114 test months, split into three stretches</text>
   </g>
-  <g id="text_29">
-   <text style="font-size: 8.5px; font-family: Consolas, Menlo, 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6b7b87" x="22.176" y="289.615608" transform="rotate(-0 22.176 289.615608)">reports/external/predictions.csv</text>
+  <g id="text_25">
+   <text style="font-size: 10px; font-family: Consolas, Menlo, 'DejaVu Sans Mono', monospace; text-anchor: start; fill: #6b7b87" x="22.176" y="289.255256" transform="rotate(-0 22.176 289.255256)">reports/external/predictions.csv</text>
   </g>
  </g>
  <defs>

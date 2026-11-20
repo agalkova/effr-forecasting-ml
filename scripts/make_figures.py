@@ -102,15 +102,6 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         )
     else:
         top.legend(loc="upper left", ncol=3, bbox_to_anchor=(0, 1.02))
-    if not narrow:
-        top.text(
-            hike[0] + pd.Timedelta(days=12),
-            5.75,
-            "2022-23 hikes",
-            color=fs.MUTED,
-            fontsize=plt.rcParams["font.size"] - 1.5,
-            va="top",
-        )
 
     bottom.axhline(0, color=fs.SPINE, lw=0.8)
     bottom.plot(
@@ -181,7 +172,7 @@ def forecast_figure(frame: pd.DataFrame, narrow: bool) -> None:
         else "Forecasts vs the actual rate",
         "Mar 2017 - Aug 2026, 114 months"
         if narrow
-        else "External test, Mar 2017 - Aug 2026 (114 months)",
+        else "External test, Mar 2017 - Aug 2026 (114 months). Shaded: 2022-23 rate hikes",
         narrow,
     )
     fs.source(fig, "reports/external/predictions.csv", narrow)
