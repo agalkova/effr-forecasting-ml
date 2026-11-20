@@ -8,7 +8,15 @@ The model design was developed on data through February 2017 and then frozen. A 
 
 **Main finding:** Ridge has the lowest external-period RMSE, at **0.1606 percentage points** versus **0.1922** for persistence. Its MAE advantage is much smaller, and the uncertainty interval includes zero. Random Forest remains worse than both simpler approaches.
 
-![EFFR forecasts on the external period](reports/external/forecast.png)
+![Actual rate, one-month-ahead forecasts, and the monthly miss for Ridge and repeating last month](docs/figures/external-forecasts.svg)
+
+In a typical month, repeating last month's rate is hard to beat: its median miss is 0.01 percentage
+points, against 0.06 for Ridge, because the rate usually doesn't move. The large misses cluster around
+the March 2020 cut and the 2022-23 increases, when a forecast built from past values can only follow the
+rate. Ridge's lower RMSE comes from those months. Before 2022 it is close to repeating last month; during
+the hikes and since 2024 it is clearly better:
+
+![RMSE by period for repeating last month, Ridge, and Random Forest](docs/figures/error-by-period.svg)
 
 ## External validation
 
@@ -48,6 +56,12 @@ effr-verify \
   --external-expected reports/external
 ```
 
+To redraw the figures in `docs/figures/` from the committed results:
+
+```bash
+python scripts/make_figures.py
+```
+
 On Windows, activate with `.venv\Scripts\Activate.ps1` in PowerShell. The package commands can also be run as Python modules. Direct dependencies are listed in `pyproject.toml`; `requirements-lock.txt` records the tested environment.
 
 ## Forecast design
@@ -83,6 +97,7 @@ The command-line functions coordinate these steps; model fitting and evaluation 
 
 - `reports/` contains the development split's predictions, model-selection results, feature importance, figures, and run metadata.
 - `reports/external/` contains dated external predictions, metrics, uncertainty intervals, the final figure, and run metadata.
+- `docs/figures/` contains the SVG figures drawn by `scripts/make_figures.py` from `reports/external/predictions.csv`.
 - `tests/` checks feature timing, split isolation, data continuity, frozen parameters, dated outputs, and deterministic uncertainty estimates.
 - GitHub Actions reruns the tests and both evaluations, then compares regenerated artifacts with the committed results.
 
